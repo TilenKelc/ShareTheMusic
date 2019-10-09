@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareTheMusic.Android", "ShareTheMusic.Android\ShareTheMusic.Android.csproj", "{392C81E1-445A-49CF-B798-66D8D5E14095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareTheMusic", "ShareTheMusic\ShareTheMusic.csproj", "{5AC302BB-0225-426A-AEAF-75262DFCC465}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{392C81E1-445A-49CF-B798-66D8D5E14095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{392C81E1-445A-49CF-B798-66D8D5E14095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{392C81E1-445A-49CF-B798-66D8D5E14095}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{392C81E1-445A-49CF-B798-66D8D5E14095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{392C81E1-445A-49CF-B798-66D8D5E14095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{392C81E1-445A-49CF-B798-66D8D5E14095}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5AC302BB-0225-426A-AEAF-75262DFCC465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC302BB-0225-426A-AEAF-75262DFCC465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC302BB-0225-426A-AEAF-75262DFCC465}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5AC302BB-0225-426A-AEAF-75262DFCC465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC302BB-0225-426A-AEAF-75262DFCC465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AC302BB-0225-426A-AEAF-75262DFCC465}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36485C15-ABE8-4D41-AAF1-7CE20D9177E5}
+	EndGlobalSection
+EndGlobal

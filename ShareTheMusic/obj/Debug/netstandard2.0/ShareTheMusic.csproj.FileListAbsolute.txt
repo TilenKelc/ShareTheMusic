@@ -1,0 +1,13 @@
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\bin\Debug\netstandard2.0\ShareTheMusic.deps.json
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\bin\Debug\netstandard2.0\ShareTheMusic.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\bin\Debug\netstandard2.0\ref\ShareTheMusic.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\bin\Debug\netstandard2.0\ShareTheMusic.pdb
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ShareTheMusic.csprojAssemblyReference.cache
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ShareTheMusic.AssemblyInfoInputs.cache
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ShareTheMusic.AssemblyInfo.cs
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ShareTheMusic.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ref\ShareTheMusic.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ShareTheMusic.pdb
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\XamlC.stamp
