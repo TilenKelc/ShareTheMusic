@@ -10,4 +10,3 @@ C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ShareTheMusic.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ref\ShareTheMusic.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\ShareTheMusic.pdb
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic\obj\Debug\netstandard2.0\XamlC.stamp

@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v9.0": {
+      "Network/3.4.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
+      },
       "Plugin.MediaManager/0.8.12": {
         "type": "package",
         "dependencies": {
@@ -932,6 +941,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Network": "3.4.0.4",
           "Plugin.MediaManager": "0.8.12",
           "Xamarin.Essentials": "1.3.1",
           "Xamarin.Forms": "4.2.0.848062"
@@ -946,6 +956,18 @@
     }
   },
   "libraries": {
+    "Network/3.4.0.4": {
+      "sha512": "8xwJzPFXMmUG5NSBbz9rEYz6NJUcd171WlL2STO1mzNVUFxXp+U966ak35ultQbkeeo+braLa8TL8k3A6eG2Qw==",
+      "type": "package",
+      "path": "network/3.4.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Network.dll",
+        "network.3.4.0.4.nupkg.sha512",
+        "network.nuspec"
+      ]
+    },
     "Plugin.MediaManager/0.8.12": {
       "sha512": "ONjRhfBd8mV0ASMStfu3lyQvUnLLbjRF5YhqEtUfV7Ntp4rPDXxks6eT/TyL8cF0JCBcdaQ5ODhaw26QVvL+tg==",
       "type": "package",

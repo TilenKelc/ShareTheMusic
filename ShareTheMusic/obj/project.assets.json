@@ -26,6 +26,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Network/3.4.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/Network.dll": {}
+        },
+        "runtime": {
+          "lib/Network.dll": {}
+        }
+      },
       "Plugin.MediaManager/0.8.12": {
         "type": "package",
         "compile": {
@@ -217,6 +226,18 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Network/3.4.0.4": {
+      "sha512": "8xwJzPFXMmUG5NSBbz9rEYz6NJUcd171WlL2STO1mzNVUFxXp+U966ak35ultQbkeeo+braLa8TL8k3A6eG2Qw==",
+      "type": "package",
+      "path": "network/3.4.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Network.dll",
+        "network.3.4.0.4.nupkg.sha512",
+        "network.nuspec"
       ]
     },
     "Plugin.MediaManager/0.8.12": {
@@ -609,6 +630,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
+      "Network >= 3.4.0.4",
       "Plugin.MediaManager >= 0.8.12",
       "Xamarin.Essentials >= 1.3.1",
       "Xamarin.Forms >= 4.2.0.848062"
@@ -664,6 +686,10 @@
             "version": "[2.0.3, )",
             "autoReferenced": true
           },
+          "Network": {
+            "target": "Package",
+            "version": "[3.4.0.4, )"
+          },
           "Plugin.MediaManager": {
             "target": "Package",
             "version": "[0.8.12, )"
@@ -690,5 +716,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Network 3.4.0.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Network",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

@@ -49,13 +49,13 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Network": {
+              "target": "Package",
+              "version": "[3.4.0.4, )"
+            },
             "Plugin.MediaManager": {
               "target": "Package",
               "version": "[0.8.12, )"
-            },
-            "Plugin.MediaManager.ExoPlayer": {
-              "target": "Package",
-              "version": "[0.4.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
