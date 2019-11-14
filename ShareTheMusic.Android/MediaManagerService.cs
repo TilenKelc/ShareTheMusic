@@ -14,8 +14,6 @@ using Android.Media;
 using Xamarin.Forms;
 using ShareTheMusic.Droid;
 using System.IO;
-using Java.IO;
-using Xamarin.Essentials;
 
 [assembly: Dependency(typeof(MediaManagerService))]
 namespace ShareTheMusic.Droid
