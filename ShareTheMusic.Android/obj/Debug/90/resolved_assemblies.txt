@@ -1,14 +1,6 @@
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ShareTheMusic.Android.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ExoPlayer.Core.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ExoPlayer.Dash.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ExoPlayer.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ExoPlayer.Ext.MediaSession.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ExoPlayer.Hls.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ExoPlayer.SmoothStreaming.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ExoPlayer.UI.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\FormsViewGroup.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\Java.Interop.dll
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\MediaManager.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\Mono.Android.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\mscorlib.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ShareTheMusic.dll

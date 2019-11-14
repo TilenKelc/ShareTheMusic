@@ -10,18 +10,39 @@
         <Label Text="ShareTheMusic" 
                 HorizontalOptions="Center"
                 VerticalOptions="Start" />
-        <Button Text="Play"
+        <Button x:Name="PlayPause"
+                Text="Play"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="PlayMusic"/>
-        <Button Text="Pause/Play"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="PauseMusic"/>
-        <Button Text="Stop"
+        <Button x:Name="Stop"
+                IsVisible="False"
+                Text="Stop"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="StopMusic"/>
+        <Button Text="Connect"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="Connect"/>
+        <Button x:Name="Send"
+                Text="Send"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="SendData"
+                IsVisible="False"/>
+        <Button x:Name="CheckTxt"
+                Text="Check"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="CheckButton"
+                IsVisible="False"/>
+        <Picker x:Name="ShowSongFile" 
+                Title="Select a song"/>
+        <Button Text="convert"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="Convert"/>
     </StackLayout>
 
 </ContentPage>

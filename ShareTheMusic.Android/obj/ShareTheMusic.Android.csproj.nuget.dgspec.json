@@ -103,14 +103,6 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
-            "Network": {
-              "target": "Package",
-              "version": "[3.4.0.4, )"
-            },
-            "Plugin.MediaManager": {
-              "target": "Package",
-              "version": "[0.8.12, )"
-            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"

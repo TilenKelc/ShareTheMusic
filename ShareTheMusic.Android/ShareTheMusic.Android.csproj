@@ -65,7 +65,9 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BluetoothManagerService.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MediaManagerService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,9 +102,6 @@
       <Project>{76D27C55-3AA3-4BEF-9759-74626ADD42A3}</Project>
       <Name>ShareTheMusic</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Assets\raw\thunder.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

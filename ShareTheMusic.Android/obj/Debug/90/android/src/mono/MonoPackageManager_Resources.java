@@ -3,15 +3,7 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "ShareTheMusic.Android.dll" comes first in this list. */
 		"ShareTheMusic.Android.dll",
-		"ExoPlayer.Core.dll",
-		"ExoPlayer.Dash.dll",
-		"ExoPlayer.dll",
-		"ExoPlayer.Ext.MediaSession.dll",
-		"ExoPlayer.Hls.dll",
-		"ExoPlayer.SmoothStreaming.dll",
-		"ExoPlayer.UI.dll",
 		"FormsViewGroup.dll",
-		"MediaManager.dll",
 		"ShareTheMusic.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",
