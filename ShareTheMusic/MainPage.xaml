@@ -29,8 +29,7 @@
                 Text="Send"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="SendData"
-                IsVisible="False"/>
+                Clicked="SendData"/>
         <Button x:Name="CheckTxt"
                 Text="Check"
                 HorizontalOptions="Center"

@@ -10,7 +10,7 @@ namespace ShareTheMusic
 
         void Stop();
 
-        byte[] Convert(string path);
+        //void PlayFromByte(byte[] byteArrayFile);
 
         IList<string> GetFileLocation();
     }

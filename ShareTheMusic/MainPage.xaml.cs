@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading;
 using Xamarin.Forms;
 
-using System.Threading.Tasks;
 using System.IO;
 
 namespace ShareTheMusic
@@ -15,6 +14,8 @@ namespace ShareTheMusic
     public partial class MainPage : ContentPage
     {
         List<string> pathList = new List<string>();
+        bool bluetoothConnection = false;
+        bool musicPlayFromByte = false;
 
         public MainPage()
         {
@@ -37,10 +38,16 @@ namespace ShareTheMusic
 
         async private void PlayMusic(object sender, EventArgs e)
         {
-            if(ShowSongFile.SelectedItem != null)
+            if (ShowSongFile.SelectedItem != null)
             {
-
                 bool temp = DependencyService.Get<MediaManager>().PlayPause(pathList[ShowSongFile.SelectedIndex]);
+                
+                if (bluetoothConnection == false)
+                {
+                    byte[] byteArrayFile = System.IO.File.ReadAllBytes(pathList[ShowSongFile.SelectedIndex]);
+                    DependencyService.Get<BluetoothManager>().Write(byteArrayFile);
+                }
+
                 Stop.IsVisible = true;
                 if (temp == true)
                 {
@@ -84,40 +91,53 @@ namespace ShareTheMusic
             if (checkBluetooth == "AlreadyOn")
             {
                 string[] deviceNames = DependencyService.Get<BluetoothManager>().findBTdevices();
-                string deviceText = await DisplayActionSheet("Select device", "Cancel", null, deviceNames);
+                string deviceText = await DisplayActionSheet("Select device", "Cancel", "Host", deviceNames);
                 
-                if (!string.IsNullOrEmpty(deviceText) && deviceText != "Cancel")
+                if (!string.IsNullOrEmpty(deviceText) && deviceText != "Host" && deviceText != "Cancel")
                 {
                     DependencyService.Get<BluetoothManager>().runClientSide(deviceText);
+                    //DependencyService.Get<BluetoothManager>().Read();
+                    musicPlayFromByte = true;
+                    bluetoothConnection = true;
                 }
-                else
+                else if(!string.IsNullOrEmpty(deviceText) && deviceText == "Host")
                 {
                     DependencyService.Get<BluetoothManager>().runServerSide();
+                    bluetoothConnection = true;
                 }
                 Send.IsVisible = true;
+                CheckTxt.IsVisible = true;
             }
         }
-
+        byte[] byteArrayFile = null;
         private void SendData(object sender, EventArgs e)
         {
-            string test = "Testing";
-            byte[] temp = Encoding.ASCII.GetBytes(test);
-            DependencyService.Get<BluetoothManager>().write(temp);
+            /*
+            string temp = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." +
+                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." +
+                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." +
+                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." +
+                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." +
+                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." +
+                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.";
+            byte[] send = Encoding.ASCII.GetBytes(temp);
+            DependencyService.Get<BluetoothManager>().Write(send);*/
+
+            
+            byteArrayFile = System.IO.File.ReadAllBytes(pathList[ShowSongFile.SelectedIndex]);
+            DependencyService.Get<BluetoothManager>().Write(byteArrayFile);
+
         }
 
         private void CheckButton(object sender, EventArgs e)
         {
-            if (DependencyService.Get<BluetoothManager>().read() != null)
-            {
-                byte[] temp = DependencyService.Get<BluetoothManager>().read();
-                string result = Encoding.UTF8.GetString(temp);
-                CheckTxt.Text = result;
-            }
+            DependencyService.Get<BluetoothManager>().Read();
         }
 
         private void Convert(object sender, EventArgs e)
         {
-            byte[] temp = DependencyService.Get<MediaManager>().Convert(pathList[ShowSongFile.SelectedIndex]);
+            
+            //DependencyService.Get<MediaManager>().PlayFromByte(byteArrayFile);
         }
     }
 }

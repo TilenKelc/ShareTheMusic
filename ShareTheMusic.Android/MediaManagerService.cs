@@ -61,10 +61,9 @@ namespace ShareTheMusic.Droid
             player = new MediaPlayer();
             clicks = 0;
         }
-
-        public byte[] Convert(string path)
+        /*
+        public void PlayFromByte(byte[] byteArrayFile)
         {
-            byte[] byteArrayFile = System.IO.File.ReadAllBytes(path);
             Stop();
             player = new MediaPlayer();
             player.Prepared += (sender, e) =>
@@ -73,8 +72,7 @@ namespace ShareTheMusic.Droid
             };
             player.SetDataSource(new StreamMediaDataSource(new System.IO.MemoryStream(byteArrayFile)));
             player.Prepare();
-            return null;
-        }
+        }*/
 
         public void Close()
         {
@@ -108,13 +106,12 @@ namespace ShareTheMusic.Droid
             {
                 var temp = new List<string>();
 
+                /*Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
+                             Android.OS.Environment.DirectoryDocuments).AbsolutePath);*/
                 Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
-                 Android.OS.Environment.DirectoryDocuments).AbsolutePath);
+                             Android.OS.Environment.DirectoryDownloads).AbsolutePath);
                 Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
-                          Android.OS.Environment.DirectoryDownloads).AbsolutePath);
-                Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
-                        Android.OS.Environment.DirectoryMusic).AbsolutePath);
-
+                             Android.OS.Environment.DirectoryMusic).AbsolutePath);
 
                 foreach (var path in Pathlist)
                 {

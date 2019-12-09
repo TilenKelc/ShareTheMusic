@@ -14,11 +14,10 @@ namespace ShareTheMusic
 
         void runClientSide(string deviceName);
 
-        void cancel();
+        void Cancel();
 
-        //List<byte[]> read();
-        byte[] read();
+        void Read();
 
-        void write(byte[] bytes);
+        void Write(byte[] bytes);
     }
 }
