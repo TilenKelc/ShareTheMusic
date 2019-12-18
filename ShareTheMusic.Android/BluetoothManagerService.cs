@@ -154,6 +154,7 @@ namespace ShareTheMusic.Droid
             try
             {
                 mSocket.Close();
+                btAdapter.Disable();
             }
             catch (Exception ex)
             {
@@ -194,25 +195,27 @@ namespace ShareTheMusic.Droid
             System.Threading.Tasks.Task.Run(() =>
             {
                 Java.IO.File temp = Java.IO.File.CreateTempFile("temp", "mp3");
-                Java.IO.FileOutputStream fos = new Java.IO.FileOutputStream(temp);
                 Java.IO.FileInputStream fis = new Java.IO.FileInputStream(temp);
                 temp.DeleteOnExit();
-                MediaPlayer player = new MediaPlayer();
-                player.SetDataSource(fis.FD);
 
+                MediaPlayer player;
 
                 while (true)
                 {
                     try
                     {
                         byte[] myReadBuffer = new byte[10000];
+                        Java.IO.FileOutputStream fos = new Java.IO.FileOutputStream(temp);
+                        
                         mmInStream.Read(myReadBuffer, 0, myReadBuffer.Length);
                         fos.Write(myReadBuffer, 0, myReadBuffer.Length);
-                        //fos.Close();
+                        
+                        player = new MediaPlayer();
+                        player.SetDataSource(fis.FD);
                         player.Prepare();
                         player.Start();
-                        //Thread.Sleep(100);
-                        //player.Release();
+
+
                         while (true)
                         {
                             if (!player.IsPlaying)
@@ -226,35 +229,11 @@ namespace ShareTheMusic.Droid
                     {
                         System.Diagnostics.Debug.WriteLine("Input stream was disconnected", ex);
                     }
-                } 
+                }
 
             }).ConfigureAwait(false);
         }
-        /*
-        public void Read()
-        {
-            System.Threading.Tasks.Task.Run(() =>
-            {
-                MediaPlayer player = new MediaPlayer();
-                try
-                {
-                    while (mmInStream.IsDataAvailable())
-                    {
-                        player.Prepared += (sender, e) =>
-                        {
-                            player.Start();
-                        };
-                        player.SetDataSource(new StreamMediaDataSource(mmInStream));
-                        player.Prepare();
-                    }
-                }
-                catch (IOException ex)
-                {
-                    System.Diagnostics.Debug.WriteLine("Input stream was disconnected", ex);
-                }
-            }).ConfigureAwait(false);
-        }
-        */
+
         public void Write(byte[] bytes)
         {
             System.Threading.Tasks.Task.Run(() =>

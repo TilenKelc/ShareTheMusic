@@ -21,6 +21,7 @@ namespace ShareTheMusic
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            DependencyService.Get<BluetoothManager>().Cancel();
         }
 
         protected override void OnResume()

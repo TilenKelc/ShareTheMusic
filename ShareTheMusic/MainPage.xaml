@@ -38,10 +38,6 @@
                 IsVisible="False"/>
         <Picker x:Name="ShowSongFile" 
                 Title="Select a song"/>
-        <Button Text="convert"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="Convert"/>
     </StackLayout>
 
 </ContentPage>

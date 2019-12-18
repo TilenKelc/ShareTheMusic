@@ -10,8 +10,6 @@ namespace ShareTheMusic
 
         void Stop();
 
-        //void PlayFromByte(byte[] byteArrayFile);
-
         IList<string> GetFileLocation();
     }
 }
