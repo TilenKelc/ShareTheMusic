@@ -7,6 +7,7 @@ using System.Threading;
 using Xamarin.Forms;
 
 using System.IO;
+using MP3Sharp;
 
 namespace ShareTheMusic
 {
@@ -15,11 +16,11 @@ namespace ShareTheMusic
     {
         List<string> pathList = new List<string>();
         bool bluetoothConnection = false;
-        bool musicPlayFromByte = false;
 
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
             LoadSongFilePaths();
         }
 
@@ -37,39 +38,39 @@ namespace ShareTheMusic
         }
 
         async private void PlayMusic(object sender, EventArgs e)
-        {
+        {            
             if (ShowSongFile.SelectedItem != null)
             {
-                bool temp = DependencyService.Get<MediaManager>().PlayPause(pathList[ShowSongFile.SelectedIndex]);
-                
-                if (bluetoothConnection == false)
+                if (bluetoothConnection)
                 {
-                    byte[] byteArrayFile = System.IO.File.ReadAllBytes(pathList[ShowSongFile.SelectedIndex]);
-                    DependencyService.Get<BluetoothManager>().Write(byteArrayFile);
+                    SendData();
+                    Thread.Sleep(800);
                 }
 
-                Stop.IsVisible = true;
+                bool temp = DependencyService.Get<MediaManager>().PlayPause(pathList[ShowSongFile.SelectedIndex]);
+
+                //Stop.IsVisible = true;
                 if (temp == true)
                 {
-                    PlayPause.Text = "Pause";
+                    PlayPause.Source = "pause.png";
                 }
                 else
                 {
-                    PlayPause.Text = "Play";
+                    PlayPause.Source = "play.png";
                 }
             }
             else
             {
                 await DisplayAlert("WARNING", "No song selected", "OK");
             }
-     
+            
         }
 
         private void StopMusic(object sender, EventArgs e)
         {
-            Stop.IsVisible = false;
-            PlayPause.Text = "Play";
-            DependencyService.Get<MediaManager>().Stop();   
+            //Stop.IsVisible = false;
+            //PlayPause.Text = "Play";
+            //DependencyService.Get<MediaManager>().Stop();   
         }
 
         private async void Connect(object sender, EventArgs e)
@@ -96,8 +97,8 @@ namespace ShareTheMusic
                 if (!string.IsNullOrEmpty(deviceText) && deviceText != "Host" && deviceText != "Cancel")
                 {
                     DependencyService.Get<BluetoothManager>().runClientSide(deviceText);
-                    //DependencyService.Get<BluetoothManager>().Read();
-                    musicPlayFromByte = true;
+                    DependencyService.Get<BluetoothManager>().Read();
+
                     bluetoothConnection = true;
                 }
                 else if(!string.IsNullOrEmpty(deviceText) && deviceText == "Host")
@@ -105,20 +106,77 @@ namespace ShareTheMusic
                     DependencyService.Get<BluetoothManager>().runServerSide();
                     bluetoothConnection = true;
                 }
-                Send.IsVisible = true;
-                CheckTxt.IsVisible = true;
             }
         }
-        byte[] byteArrayFile = null;
-        private void SendData(object sender, EventArgs e)
-        {       
-            byteArrayFile = System.IO.File.ReadAllBytes(pathList[ShowSongFile.SelectedIndex]);
-            DependencyService.Get<BluetoothManager>().Write(byteArrayFile);
+
+        public void SendData()
+        {   
+            System.Threading.Tasks.Task.Run(() =>
+            {
+                MP3Stream stream = new MP3Stream(pathList[ShowSongFile.SelectedIndex]);
+                byte[] buffer = new byte[1000];
+                int bytesReturned = 1;
+
+                while (bytesReturned > 0)
+                {
+                    bytesReturned = stream.Read(buffer, 0, buffer.Length);
+                    DependencyService.Get<BluetoothManager>().Write(buffer);
+                }
+                stream.Close();
+
+            }).ConfigureAwait(false);
         }
 
-        private void CheckButton(object sender, EventArgs e)
+        private void NextOne(object sender, EventArgs e)
         {
-            DependencyService.Get<BluetoothManager>().Read();
+            string song;
+
+            if((ShowSongFile.SelectedIndex+1) >= pathList.Count)
+            {
+                song = pathList[0];
+            }
+            else
+            {
+                song = pathList[ShowSongFile.SelectedIndex+1];
+            }
+
+            DependencyService.Get<MediaManager>().Stop();
+            bool temp = DependencyService.Get<MediaManager>().PlayPause(song);
+
+            if (temp == true)
+            {
+                PlayPause.Source = "pause.png";
+            }
+            else
+            {
+                PlayPause.Source = "play.png";
+            }
+        }
+
+        private void PreviousOne(object sender, EventArgs e)
+        {
+            string song;
+
+            if ((ShowSongFile.SelectedIndex - 1) <= pathList.Count)
+            {
+                song = pathList[0];
+            }
+            else
+            {
+                song = pathList[ShowSongFile.SelectedIndex - 1];
+            }
+
+            DependencyService.Get<MediaManager>().Stop();
+            bool temp = DependencyService.Get<MediaManager>().PlayPause(song);
+
+            if (temp == true)
+            {
+                PlayPause.Source = "pause.png";
+            }
+            else
+            {
+                PlayPause.Source = "play.png";
+            }
         }
     }
 }

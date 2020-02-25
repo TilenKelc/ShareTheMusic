@@ -495,4 +495,15 @@ C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\fla
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\flata\29f2de4cdab6baeafcb24894a8c1c311c0f1d27f.flata
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\flata\dbec45132af07e81d73675ead9703a34f8662706.flata
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\flata\adef1533998838e353d0d250a61063dc6acf3f36.flata
-C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\src\md5c539bdc79f76d0c80e6cd44011eba829\StreamMediaDataSource.java
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\linksrc\NAudio.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\NAudio.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\linksrc\MP3Sharp.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\linksrc\MP3Sharp.pdb
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\MP3Sharp.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\MP3Sharp.pdb
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\res\drawable\next.png
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\res\drawable\pause.png
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\res\drawable\play.png
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\res\drawable\pre.png
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\res\drawable\blu.png
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\res\drawable\image.png

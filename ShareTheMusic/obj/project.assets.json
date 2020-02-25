@@ -11,6 +11,15 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "MP3Sharp/1.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MP3Sharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MP3Sharp.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -80,6 +89,64 @@
         "microsoft.netcore.platforms.1.1.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json"
+      ]
+    },
+    "MP3Sharp/1.0.5": {
+      "sha512": "KyGy1ZBVEXfovHdJRY8NzjWZBdL75PSx+13KW720JuUTKyWbDCHk0jgjif9b62UPnBZu5V/ZB+tpHWcPhoZS8Q==",
+      "type": "package",
+      "path": "mp3sharp/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MP3Sharp.dll",
+        "lib/netstandard2.0/MP3Sharp.pdb",
+        "mp3sharp.1.0.5.nupkg.sha512",
+        "mp3sharp.nuspec",
+        "src/MP3Sharp/Buffer16BitStereo.cs",
+        "src/MP3Sharp/Decoding/ABuffer.cs",
+        "src/MP3Sharp/Decoding/BitReserve.cs",
+        "src/MP3Sharp/Decoding/Bitstream.cs",
+        "src/MP3Sharp/Decoding/BitstreamErrors.cs",
+        "src/MP3Sharp/Decoding/BitstreamException.cs",
+        "src/MP3Sharp/Decoding/CircularByteBuffer.cs",
+        "src/MP3Sharp/Decoding/Crc16.cs",
+        "src/MP3Sharp/Decoding/Decoder.cs",
+        "src/MP3Sharp/Decoding/DecoderErrors.cs",
+        "src/MP3Sharp/Decoding/DecoderException.cs",
+        "src/MP3Sharp/Decoding/Decoders/ASubband.cs",
+        "src/MP3Sharp/Decoding/Decoders/IFrameDecoder.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerI/SubbandLayer1.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerI/SubbandLayer1IntensityStereo.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerI/SubbandLayer1Stereo.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIDecoder.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerII/SubbandLayer2.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerII/SubbandLayer2IntensityStereo.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerII/SubbandLayer2Stereo.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIIDecoder.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIII/ChannelData.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIII/GranuleInfo.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIII/Layer3SideInfo.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIII/SBI.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIII/ScaleFactorData.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIII/ScaleFactorTable.cs",
+        "src/MP3Sharp/Decoding/Decoders/LayerIIIDecoder.cs",
+        "src/MP3Sharp/Decoding/Equalizer.cs",
+        "src/MP3Sharp/Decoding/Header.cs",
+        "src/MP3Sharp/Decoding/Huffman.cs",
+        "src/MP3Sharp/Decoding/OutputChannels.cs",
+        "src/MP3Sharp/Decoding/OutputChannelsEnum.cs",
+        "src/MP3Sharp/Decoding/PushbackStream.cs",
+        "src/MP3Sharp/Decoding/SampleBuffer.cs",
+        "src/MP3Sharp/Decoding/SynthesisFilter.cs",
+        "src/MP3Sharp/IO/RandomAccessFileStream.cs",
+        "src/MP3Sharp/IO/RiffFile.cs",
+        "src/MP3Sharp/IO/WaveFile.cs",
+        "src/MP3Sharp/IO/WaveFileBuffer.cs",
+        "src/MP3Sharp/MP3Sharp.csproj",
+        "src/MP3Sharp/MP3SharpException.cs",
+        "src/MP3Sharp/MP3Stream.cs",
+        "src/MP3Sharp/SoundFormat.cs",
+        "src/MP3Sharp/Support/SupportClass.cs"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -558,6 +625,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "MP3Sharp >= 1.0.5",
       "NETStandard.Library >= 2.0.3",
       "Xamarin.Essentials >= 1.3.1",
       "Xamarin.Forms >= 4.2.0.848062"
@@ -607,6 +675,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "MP3Sharp": {
+            "target": "Package",
+            "version": "[1.0.5, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",

@@ -43,6 +43,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "MP3Sharp": {
+              "target": "Package",
+              "version": "[1.0.5, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

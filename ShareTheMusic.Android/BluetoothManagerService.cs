@@ -27,6 +27,8 @@ namespace ShareTheMusic.Droid
         BluetoothSocket mSocket = null;
         BluetoothDevice mDevice = null;
         UUID uuid = UUID.FromString("30324d3a-3050-4e87-a159-f8fa6c433786");
+        //List<BluetoothSocket> deviceList = new List<BluetoothSocket>();
+        //List<System.IO.Stream> streamList = new List<System.IO.Stream>();
 
         System.IO.Stream mmInStream;
         System.IO.Stream mmOutStream;
@@ -94,6 +96,7 @@ namespace ShareTheMusic.Droid
                     try
                     {
                         socket = mServerSocket.Accept();
+                        //deviceList.Add(socket);
                     }
                     catch (Exception ex)
                     {
@@ -102,6 +105,7 @@ namespace ShareTheMusic.Droid
 
                     if (socket != null)
                     {
+                        //manageConnectedSocket();
                         manageConnectedSocket(socket);
                         break;
                     }
@@ -134,6 +138,7 @@ namespace ShareTheMusic.Droid
             try
             {
                 mSocket.Connect();
+                //deviceList.Add(mSocket);
             }
             catch (Exception ex)
             {
@@ -146,6 +151,7 @@ namespace ShareTheMusic.Droid
                     System.Diagnostics.Debug.WriteLine("Could not close the client socket", ex);
                 }
             }
+            //manageConnectedSocket();
             manageConnectedSocket(mSocket);
         }
 
@@ -155,6 +161,8 @@ namespace ShareTheMusic.Droid
             {
                 mSocket.Close();
                 btAdapter.Disable();
+                //streamList.Clear();
+                //deviceList.Clear();
             }
             catch (Exception ex)
             {
@@ -164,7 +172,9 @@ namespace ShareTheMusic.Droid
 
         public void manageConnectedSocket(BluetoothSocket socket)
         {
+            
             mSocket = socket;
+
             System.IO.Stream tmpIn = null;
             System.IO.Stream tmpOut = null;
 
@@ -188,73 +198,97 @@ namespace ShareTheMusic.Droid
 
             mmInStream = tmpIn;
             mmOutStream = tmpOut;
+            
+            /*
+            foreach(BluetoothSocket socketTemp in deviceList)
+            {
+                mSocket = socketTemp;
+
+                System.IO.Stream tmpIn = null;
+                System.IO.Stream tmpOut = null;
+
+                try
+                {
+                    tmpIn = socketTemp.InputStream;
+                }
+                catch (System.IO.IOException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error occurred when creating input stream", ex);
+                }
+
+                try
+                {
+                    tmpOut = socketTemp.OutputStream;
+                }
+                catch (System.IO.IOException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error occurred when creating output stream", ex);
+                }
+
+                mmInStream = tmpIn;
+                mmOutStream = tmpOut;
+                streamList.Add(mmOutStream);
+            }*/
         }
-        
+
+        [Obsolete]
         public void Read()
         {
             System.Threading.Tasks.Task.Run(() =>
             {
-                Java.IO.File temp = Java.IO.File.CreateTempFile("temp", "mp3");
-                Java.IO.FileInputStream fis = new Java.IO.FileInputStream(temp);
-                temp.DeleteOnExit();
+                AudioTrack _output;
 
-                MediaPlayer player;
+                int buffsize = AudioTrack.GetMinBufferSize(44100, ChannelOut.Stereo, Android.Media.Encoding.Pcm16bit);
+                _output = new AudioTrack(Android.Media.Stream.Music, 44100, ChannelOut.Stereo, Android.Media.Encoding.Pcm16bit,
+                    buffsize, AudioTrackMode.Stream);
+                _output.Play();
 
-                while (true)
+                byte[] myReadBuffer = new byte[1000];
+
+                System.Threading.Tasks.Task.Run(() =>
                 {
-                    try
+                    while (true)
                     {
-                        byte[] myReadBuffer = new byte[10000];
-                        Java.IO.FileOutputStream fos = new Java.IO.FileOutputStream(temp);
-                        
-                        mmInStream.Read(myReadBuffer, 0, myReadBuffer.Length);
-                        fos.Write(myReadBuffer, 0, myReadBuffer.Length);
-                        
-                        player = new MediaPlayer();
-                        player.SetDataSource(fis.FD);
-                        player.Prepare();
-                        player.Start();
-
-
-                        while (true)
+                        try
                         {
-                            if (!player.IsPlaying)
-                            {
-                                player.Release();
-                                break;
-                            }
+                            mmInStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+                            _output.Write(myReadBuffer, 0, myReadBuffer.Length);
+                        }
+                        catch (System.IO.IOException ex)
+                        {
+                            System.Diagnostics.Debug.WriteLine("Input stream was disconnected", ex);
                         }
                     }
-                    catch (System.IO.IOException ex)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Input stream was disconnected", ex);
-                    }
-                }
-
+                }).ConfigureAwait(false);
             }).ConfigureAwait(false);
         }
 
         public void Write(byte[] bytes)
         {
-            System.Threading.Tasks.Task.Run(() =>
+            /*
+            foreach(System.IO.Stream temp in streamList)
             {
-                int offset = 0;
-                int count = 1000;
-                int len = bytes.Length;
-
-                while (offset < len)
+                try
                 {
-                    try
-                    {
-                        mmOutStream.Write(bytes);
-                        offset += count;
-                    }
-                    catch (System.IO.IOException ex)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Error occurred when sending data", ex);
-                    }
+                    temp.Write(bytes);
                 }
-            }).ConfigureAwait(false);
+                catch (System.IO.IOException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error occurred when sending data", ex);
+                }
+            }
+            *
+            */
+
+            try
+            {
+                mmOutStream.Write(bytes);
+            }
+            catch (System.IO.IOException ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error occurred when sending data", ex);
+            }
+            
         }
     }
 }

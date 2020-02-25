@@ -2,7 +2,9 @@ C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\and
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\FormsViewGroup.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\Java.Interop.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\Mono.Android.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\MP3Sharp.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\mscorlib.dll
+C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\NAudio.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\ShareTheMusic.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\System.Core.dll
 C:\Users\Tilen\source\repos\ShareTheMusic\ShareTheMusic.Android\obj\Debug\90\android\assets\System.dll

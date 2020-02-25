@@ -61,22 +61,10 @@ namespace ShareTheMusic.Droid
             player = new MediaPlayer();
             clicks = 0;
         }
-        /*
-        public void PlayFromByte(byte[] byteArrayFile)
-        {
-            Stop();
-            player = new MediaPlayer();
-            player.Prepared += (sender, e) =>
-            {
-                player.Start();
-            };
-            player.SetDataSource(new StreamMediaDataSource(new System.IO.MemoryStream(byteArrayFile)));
-            player.Prepare();
-        }*/
 
         public void Close()
         {
-            if (player == null) 
+            if (player == null)
             {
                 return;
             }
@@ -105,9 +93,9 @@ namespace ShareTheMusic.Droid
             try
             {
                 var temp = new List<string>();
-
-                /*Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
-                             Android.OS.Environment.DirectoryDocuments).AbsolutePath);*/
+                
+                Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
+                             Android.OS.Environment.DirectoryDocuments).AbsolutePath);
                 Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
                              Android.OS.Environment.DirectoryDownloads).AbsolutePath);
                 Pathlist.Add(Android.OS.Environment.GetExternalStoragePublicDirectory(
@@ -127,50 +115,6 @@ namespace ShareTheMusic.Droid
             {
                 System.Diagnostics.Debug.WriteLine("Error finding media files", ex);
                 throw ex;
-            }
-        }
-    }
-
-    public class StreamMediaDataSource : MediaDataSource
-    {
-        System.IO.Stream data;
-
-        public StreamMediaDataSource(System.IO.Stream Data)
-        {
-            data = Data;
-        }
-
-        public override long Size
-        {
-            get
-            {
-                return data.Length;
-            }
-        }
-
-        public override int ReadAt(long position, byte[] buffer, int offset, int size)
-        {
-            data.Seek(position, System.IO.SeekOrigin.Begin);
-            return data.Read(buffer, offset, size);
-        }
-
-        public override void Close()
-        {
-            if (data != null)
-            {
-                data.Dispose();
-                data = null;
-            }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-
-            if (data != null)
-            {
-                data.Dispose();
-                data = null;
             }
         }
     }

@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "NAudio": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
             "Xamarin.Android.Support.Core.Utils": {
               "target": "Package",
               "version": "[28.0.0.3, )"
@@ -97,6 +101,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "MP3Sharp": {
+              "target": "Package",
+              "version": "[1.0.5, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

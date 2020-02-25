@@ -4,40 +4,71 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ShareTheMusic.MainPage">
-
+             x:Class="ShareTheMusic.MainPage"
+             BackgroundColor="#5e2d31">
     <StackLayout>
-        <Label Text="ShareTheMusic" 
-                HorizontalOptions="Center"
-                VerticalOptions="Start" />
-        <Button x:Name="PlayPause"
-                Text="Play"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="PlayMusic"/>
+        <!-- Image -->
+        <Image Source="image.png" />
+        <!-- Start -->
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+            <!-- Emty -->
+            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand"   VerticalOptions="EndAndExpand" >
+
+            </StackLayout>
+            <!-- Text ShareTheMusic -->
+            <StackLayout Orientation="Vertical"   VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Margin="70, 20, 0, 50">
+                <Label Text="ShareTheMusic" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start" 
+                    FontSize="25"
+                    TextColor="White"/>
+            </StackLayout>
+            <!-- Bluetooth button -->
+            <StackLayout Orientation="Vertical"   VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Margin="40, 0, 0, 30" >
+                <ImageButton Source="blu.png"
+                    HorizontalOptions="Center"
+                    HeightRequest="60"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="Connect"/>
+            </StackLayout>
+        </StackLayout>
+        <Picker x:Name="ShowSongFile" 
+                Title="Select a song"
+                TextColor="#5e2d31"
+                BackgroundColor="White"/>
+        <!-- Play line -->
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="0, 100, 0, 10" >
+            <!-- Previous music -->
+            <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand"   VerticalOptions="EndAndExpand" Margin="50, 0, 0, 0">
+                <ImageButton Source="pre.png"
+                    HorizontalOptions="Center"
+                    Clicked="PreviousOne"
+                    VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+            <!-- Pause/play -->
+            <StackLayout Orientation="Vertical"   VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+                <ImageButton Source="play.png"
+                    x:Name ="PlayPause"
+                    HorizontalOptions="Center"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="PlayMusic"/>
+            </StackLayout>
+            <!-- Next music -->
+            <StackLayout Orientation="Vertical"   VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Margin="0, 0, 50, 0">
+                <ImageButton Source="next.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="NextOne"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--
         <Button x:Name="Stop"
                 IsVisible="False"
                 Text="Stop"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="StopMusic"/>
-        <Button Text="Connect"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="Connect"/>
-        <Button x:Name="Send"
-                Text="Send"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="SendData"/>
-        <Button x:Name="CheckTxt"
-                Text="Check"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="CheckButton"
-                IsVisible="False"/>
-        <Picker x:Name="ShowSongFile" 
-                Title="Select a song"/>
+                Clicked="StopMusic"/>-->
     </StackLayout>
 
 </ContentPage>

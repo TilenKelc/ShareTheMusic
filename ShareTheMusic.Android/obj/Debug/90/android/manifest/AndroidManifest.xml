@@ -10,6 +10,7 @@
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <application android:label="ShareTheMusic.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
     <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="ShareTheMusic" android:theme="@style/MainTheme" android:name="md5c539bdc79f76d0c80e6cd44011eba829.MainActivity">
       <intent-filter>

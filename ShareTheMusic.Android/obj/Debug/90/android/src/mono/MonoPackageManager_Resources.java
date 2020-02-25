@@ -4,6 +4,8 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "ShareTheMusic.Android.dll" comes first in this list. */
 		"ShareTheMusic.Android.dll",
 		"FormsViewGroup.dll",
+		"MP3Sharp.dll",
+		"NAudio.dll",
 		"ShareTheMusic.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",
