@@ -2033,11 +2033,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic.Android\\ShareTheMusic.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic.Android\\ShareTheMusic.Android.csproj",
       "projectName": "ShareTheMusic.Android",
-      "projectPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic.Android\\ShareTheMusic.Android.csproj",
+      "projectPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic.Android\\ShareTheMusic.Android.csproj",
       "packagesPath": "C:\\Users\\Tilen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic.Android\\obj\\",
+      "outputPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2058,8 +2058,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic\\ShareTheMusic.csproj": {
-              "projectPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic\\ShareTheMusic.csproj"
+            "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic\\ShareTheMusic.csproj": {
+              "projectPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic\\ShareTheMusic.csproj"
             }
           }
         }

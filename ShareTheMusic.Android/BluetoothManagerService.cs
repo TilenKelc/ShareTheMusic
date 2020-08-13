@@ -57,6 +57,11 @@ namespace ShareTheMusic.Droid
             }
         }
 
+        void RegisterBluetoothProfile()
+        {
+            //var a = new BluetoothProfile();
+        }
+
         public string[] findBTdevices()
         {
             string[] deviceNames = null;
@@ -239,31 +244,89 @@ namespace ShareTheMusic.Droid
                 AudioTrack _output;
 
                 int buffsize = AudioTrack.GetMinBufferSize(44100, ChannelOut.Stereo, Android.Media.Encoding.Pcm16bit);
-                _output = new AudioTrack(Android.Media.Stream.Music, 44100, ChannelOut.Stereo, Android.Media.Encoding.Pcm16bit,
-                    buffsize, AudioTrackMode.Stream);
+                //_output = new AudioTrack(Android.Media.Stream.Music, 44100, ChannelOut.Stereo, Android.Media.Encoding.Pcm16bit,
+                    //buffsize, AudioTrackMode.Stream);
+                var AABuilder = new AudioAttributes.Builder();
+
+                AABuilder.SetContentType(AudioContentType.Music);
+                AABuilder.SetUsage(AudioUsageKind.Media);
+                
+                var AfBuilder = new AudioFormat.Builder();
+                AfBuilder.SetSampleRate(44100);
+                AfBuilder.SetEncoding(Android.Media.Encoding.Pcm16bit);
+                AfBuilder.SetChannelMask(ChannelOut.Stereo);
+
+
+                _output = new AudioTrack(AABuilder.Build(), AfBuilder.Build(), buffsize, AudioTrackMode.Stream, AudioManager.AudioSessionIdGenerate);
                 _output.Play();
 
                 byte[] myReadBuffer = new byte[1000];
-
+                int count = 4;
                 System.Threading.Tasks.Task.Run(() =>
                 {
                     while (true)
                     {
                         try
                         {
-                            mmInStream.Read(myReadBuffer, 0, myReadBuffer.Length);
-                            _output.Write(myReadBuffer, 0, myReadBuffer.Length);
+                            
+                            int a=mmInStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+                            if (a > 0)
+                            {
+                                if (count == 0)
+                                    _output.Write(myReadBuffer, 0, myReadBuffer.Length);
+                                else
+                                    count--;
+                            }
+                            else
+                            {
+                                var t = a;
+                            }
                         }
                         catch (System.IO.IOException ex)
                         {
                             System.Diagnostics.Debug.WriteLine("Input stream was disconnected", ex);
                         }
                     }
-                }).ConfigureAwait(false);
-            }).ConfigureAwait(false);
+                }).ContinueWith((t) =>
+                {
+                    var a = t.Exception;
+                });
+            }).ContinueWith((t) =>
+            {
+                
+                var a = t.Exception;
+            });
         }
 
-        public void Write(byte[] bytes)
+        //public void Write(byte[] bytes)
+        //{
+        //    /*
+        //    foreach(System.IO.Stream temp in streamList)
+        //    {
+        //        try
+        //        {
+        //            temp.Write(bytes);
+        //        }
+        //        catch (System.IO.IOException ex)
+        //        {
+        //            System.Diagnostics.Debug.WriteLine("Error occurred when sending data", ex);
+        //        }
+        //    }
+        //    *
+        //    */
+
+        //    try
+        //    {
+        //        mmOutStream.Write(bytes);
+        //    }
+        //    catch (System.IO.IOException ex)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine("Error occurred when sending data", ex);
+        //    }
+
+        //}
+
+        public void Write(System.IO.Stream stream)
         {
             /*
             foreach(System.IO.Stream temp in streamList)
@@ -279,16 +342,44 @@ namespace ShareTheMusic.Droid
             }
             *
             */
+            AudioTrack _output;
 
+            int buffsize = AudioTrack.GetMinBufferSize(44100, ChannelOut.Stereo, Android.Media.Encoding.Pcm16bit);
+            //_output = new AudioTrack(Android.Media.Stream.Music, 44100, ChannelOut.Stereo, Android.Media.Encoding.Pcm16bit,
+            //buffsize, AudioTrackMode.Stream);
+            var AABuilder = new AudioAttributes.Builder();
+
+            AABuilder.SetContentType(AudioContentType.Music);
+            AABuilder.SetUsage(AudioUsageKind.Media);
+
+            var AfBuilder = new AudioFormat.Builder();
+            AfBuilder.SetSampleRate(44100);
+            AfBuilder.SetEncoding(Android.Media.Encoding.Pcm16bit);
+            AfBuilder.SetChannelMask(ChannelOut.Stereo);
+
+
+            _output = new AudioTrack(AABuilder.Build(), AfBuilder.Build(), buffsize, AudioTrackMode.Stream, AudioManager.AudioSessionIdGenerate);
+            _output.Play();
             try
             {
-                mmOutStream.Write(bytes);
+                byte[] buffer = new byte[1000];
+                int bytesReturned = 1;
+
+                while (bytesReturned > 0)
+                {
+                    bytesReturned = stream.Read(buffer, 0, buffer.Length);
+                    mmOutStream.Write(buffer);
+                    _output.Write(buffer, 0, buffer.Length);
+                    //DependencyService.Get<BluetoothManager>().Write(buffer);
+                }
+                stream.Close();
+                
             }
             catch (System.IO.IOException ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error occurred when sending data", ex);
             }
-            
+
         }
     }
 }

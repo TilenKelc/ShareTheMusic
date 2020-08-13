@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace ShareTheMusic
@@ -18,6 +19,7 @@ namespace ShareTheMusic
 
         void Read();
 
-        void Write(byte[] bytes);
+        //void Write(byte[] bytes);
+        void Write(Stream stream);
     }
 }

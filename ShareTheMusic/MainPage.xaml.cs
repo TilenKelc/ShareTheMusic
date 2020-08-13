@@ -47,17 +47,17 @@ namespace ShareTheMusic
                     Thread.Sleep(800);
                 }
 
-                bool temp = DependencyService.Get<MediaManager>().PlayPause(pathList[ShowSongFile.SelectedIndex]);
+                //bool temp = DependencyService.Get<MediaManager>().PlayPause(pathList[ShowSongFile.SelectedIndex]);
 
-                //Stop.IsVisible = true;
-                if (temp == true)
-                {
-                    PlayPause.Source = "pause.png";
-                }
-                else
-                {
-                    PlayPause.Source = "play.png";
-                }
+                ////Stop.IsVisible = true;
+                //if (temp == true)
+                //{
+                //    PlayPause.Source = "pause.png";
+                //}
+                //else
+                //{
+                //    PlayPause.Source = "play.png";
+                //}
             }
             else
             {
@@ -113,16 +113,19 @@ namespace ShareTheMusic
         {   
             System.Threading.Tasks.Task.Run(() =>
             {
-                MP3Stream stream = new MP3Stream(pathList[ShowSongFile.SelectedIndex]);
-                byte[] buffer = new byte[1000];
-                int bytesReturned = 1;
+                //MP3Stream stream = new MP3Stream(pathList[ShowSongFile.SelectedIndex]);
+                //byte[] buffer = new byte[1000];
+                //int bytesReturned = 1;
 
-                while (bytesReturned > 0)
-                {
-                    bytesReturned = stream.Read(buffer, 0, buffer.Length);
-                    DependencyService.Get<BluetoothManager>().Write(buffer);
-                }
-                stream.Close();
+                //while (bytesReturned > 0)
+                //{
+                //    bytesReturned = stream.Read(buffer, 0, buffer.Length);
+                //    DependencyService.Get<BluetoothManager>().Write(buffer);
+                //}
+                //stream.Close();
+                MP3Stream stream = new MP3Stream(pathList[ShowSongFile.SelectedIndex]);
+                DependencyService.Get<BluetoothManager>().Write(stream);
+
 
             }).ConfigureAwait(false);
         }

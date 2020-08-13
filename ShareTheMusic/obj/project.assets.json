@@ -639,11 +639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic\\ShareTheMusic.csproj",
+      "projectUniqueName": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic\\ShareTheMusic.csproj",
       "projectName": "ShareTheMusic",
-      "projectPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic\\ShareTheMusic.csproj",
+      "projectPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic\\ShareTheMusic.csproj",
       "packagesPath": "C:\\Users\\Tilen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic\\ShareTheMusic\\obj\\",
+      "outputPath": "C:\\Users\\Tilen\\source\\repos\\ShareTheMusic-master\\ShareTheMusic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -16,7 +16,7 @@ namespace ShareTheMusic.Droid
             Window window = this.Window;
             window.ClearFlags(WindowManagerFlags.TranslucentStatus);
             window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-            window.SetStatusBarColor(Android.Graphics.Color.Rgb(94, 45, 49));
+            //window.SetStatusBarColor(Android.Graphics.Color.Rgb(94, 45, 49));
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;

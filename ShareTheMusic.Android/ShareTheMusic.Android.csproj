@@ -68,6 +68,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioBluetoothProfile.cs" />
     <Compile Include="BluetoothManagerService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MediaManagerService.cs" />
